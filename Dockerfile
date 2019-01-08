@@ -24,11 +24,12 @@ RUN source /root/.bashrc && pyenv install 3.6.6
 RUN source /root/.bashrc && pyenv install 3.6.7
 RUN source /root/.bashrc && pyenv install 3.7.0
 RUN source /root/.bashrc && pyenv install 3.7.1
+RUN source /root/.bashrc && pyenv install 3.7.2
 
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
 
-RUN pip3 install --upgrade pipenv wheel setuptools twine
+RUN pip3 install --upgrade pipenv wheel setuptools twine awscli
 
 
 CMD ["python3", "--version"]
