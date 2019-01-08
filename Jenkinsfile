@@ -35,7 +35,7 @@ pipeline {
           export VERSION="$(jx-release-version)"
           echo "Releasing version to ${VERSION}"
           
-          docker build -t $DOCKER_REGISTRY/$ORG/$APP_NAME:${VERSION} .
+          docker build --no-cache -t $DOCKER_REGISTRY/$ORG/$APP_NAME:${VERSION} .
           docker push $DOCKER_REGISTRY/$ORG/$APP_NAME:${VERSION}
           docker tag $DOCKER_REGISTRY/$ORG/$APP_NAME:${VERSION} $DOCKER_REGISTRY/$ORG/$APP_NAME:latest
           docker push $DOCKER_REGISTRY/$ORG/$APP_NAME
