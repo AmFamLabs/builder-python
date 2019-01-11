@@ -1,4 +1,10 @@
 pipeline {
+  triggers {
+  cron '''
+  TZ=America/Chicago
+  @midnight
+  '''
+  }
   agent {
     label "jenkins-jx-base"
   }
