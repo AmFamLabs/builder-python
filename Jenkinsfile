@@ -1,6 +1,6 @@
 pipeline {
   triggers {
-    cron(BRANCH_NAME == 'master' ? 'H H(0-1) * * *' : '')
+    cron(BRANCH_NAME == 'master' ? 'TZ=America/Chicago\nH H(0-1) * * *' : '')
   }
   agent {
     label "jenkins-jx-base"
