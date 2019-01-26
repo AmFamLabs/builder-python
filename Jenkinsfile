@@ -6,7 +6,7 @@ pipeline {
     label "jenkins-jx-base"
   }
   environment {
-    ORG = 'amfamlabs'
+    ORG = 'arturo-ai'
     APP_NAME = 'builder-python'
   }
   stages {
