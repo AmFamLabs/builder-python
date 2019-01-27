@@ -4,8 +4,16 @@ RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 RUN yum update  -y
 RUN yum install -y python36u python36u-libs python36u-devel python36u-pip
 RUN ln -s /usr/bin/python3.6 /usr/bin/python3
+# NOTE: jenkinsxio/builder-python original image ends about here...
 
-# base jx image ends about here
+# install vault
+RUN cd /tmp \
+    && curl -LO https://releases.hashicorp.com/vault/1.0.2/vault_1.0.2_linux_amd64.zip \
+    && unzip vault*.zip \
+    && chmod +x vault \
+    && mv vault /usr/local/bin \
+    && rm vault*.zip \
+    && cd - 
 
 RUN yum groupinstall "Development tools" -y
 RUN yum install zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel xz xz-devel libffi-devel -y
