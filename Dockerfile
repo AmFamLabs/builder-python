@@ -1,11 +1,4 @@
-FROM jenkinsxio/builder-base:latest
-
-RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
-RUN yum distribution-synchronization
-RUN yum update  -y
-RUN yum install -y python36u python36u-libs python36u-devel python36u-pip
-RUN ln -s /usr/bin/python3.6 /usr/bin/python3
-# NOTE: jenkinsxio/builder-python original image ends about here...
+FROM jenkinsxio/builder-python:0.1.268
 
 # install vault
 RUN cd /tmp \
