@@ -1,7 +1,4 @@
 pipeline {
-  triggers {
-    cron(BRANCH_NAME == 'master' ? 'TZ=America/Chicago\n@midnight' : '')
-  }
   agent {
     label "jenkins-jx-base"
   }
