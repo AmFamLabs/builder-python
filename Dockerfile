@@ -8,7 +8,7 @@ RUN cd /tmp \
     && chmod +x vault \
     && mv vault /usr/local/bin \
     && rm vault*.zip \
-    && cd - 
+    && cd -
 
 RUN yum groupinstall "Development tools" -y
 RUN yum install zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel xz xz-devel libffi-devel -y
@@ -18,21 +18,13 @@ RUN echo 'export PATH=/root/.pyenv/bin:$PATH' >> /root/.bashrc
 RUN echo 'export PYENV_ROOT=/root/.pyenv' >> /root/.bashrc
 RUN echo 'eval "$(pyenv init -)"' >> /root/.bashrc
 RUN echo 'eval "$(pyenv virtualenv-init -)"' >> /root/.bashrc
-RUN source /root/.bashrc && pyenv install 2.7.14
-RUN source /root/.bashrc && pyenv install 2.7.15
-RUN source /root/.bashrc && pyenv install 3.5.4
-RUN source /root/.bashrc && pyenv install 3.5.5
-RUN source /root/.bashrc && pyenv install 3.6.5
-RUN source /root/.bashrc && pyenv install 3.6.6
-RUN source /root/.bashrc && pyenv install 3.6.7
-RUN source /root/.bashrc && pyenv install 3.7.0
-RUN source /root/.bashrc && pyenv install 3.7.1
-RUN source /root/.bashrc && pyenv install 3.7.2
+RUN source /root/.bashrc && pyenv install 2.7.16
+RUN source /root/.bashrc && pyenv install 3.6.9
+RUN source /root/.bashrc && pyenv install 3.7.4
 
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
 
 RUN pip3 install --upgrade pipenv wheel setuptools twine awscli
-
 
 CMD ["python3", "--version"]
