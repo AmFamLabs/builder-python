@@ -1,5 +1,5 @@
 # via https://github.com/jenkins-x/jenkins-x-builders/releases
-FROM jenkinsxio/builder-python:0.1.268
+FROM jenkinsxio/builder-python:0.1.275
 
 # install vault
 RUN cd /tmp \
